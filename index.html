@@ -1,188 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Blackshore Holdings FZ LLC</title>
 
 <style>
-/* GLOBAL */
+/* ---------- GLOBAL ---------- */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background: #06142A;
-    font-family: Arial, sans-serif;
+    background: #050f22; /* deep navy */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    color: #f5f5f5;
+}
+
+/* page wrapper */
+.page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 60px 20px 80px 20px;
     text-align: center;
-    color: #ffffff;
 }
 
-/* HERO */
-.hero {
-    padding-top: 60px;
-    padding-bottom: 60px;
+/* ---------- LOGO + GOLD DISC ---------- */
+
+.logo-wrapper {
+    margin-bottom: 36px;
 }
 
-/* LOGO & GLOW */
-.logo-container {
+/* container that holds both the disc + glow + wave */
+.logo-circle {
     position: relative;
-    width: 360px;
-    margin: 0 auto 30px auto;
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
 }
-.logo-container::before {
+
+/* solid golden disc */
+.logo-circle::before {
     content: "";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 520px;
-    height: 520px;
+    inset: 0;
     border-radius: 50%;
     background: radial-gradient(
         circle,
-        rgba(255, 215, 0, 0.85) 0%,
-        rgba(255, 215, 0, 0.55) 25%,
-        rgba(255, 215, 0, 0.22) 50%,
-        rgba(255, 215, 0, 0.06) 70%,
-        rgba(255, 215, 0, 0) 100%
+        #ffd975 0%,      /* bright centre */
+        #f2c04b 48%,     /* mid gold */
+        #c4952b 100%     /* darker rim */
     );
-    filter: blur(18px);
     z-index: 1;
 }
-.logo-image {
-    width: 100%;
+
+/* outer soft glow */
+.logo-circle::after {
+    content: "";
+    position: absolute;
+    inset: -35px;        /* expand beyond disc */
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 219, 120, 0.55) 0%,
+        rgba(255, 219, 120, 0.28) 40%,
+        rgba(255, 219, 120, 0.08) 70%,
+        rgba(255, 219, 120, 0.00) 100%
+    );
+    filter: blur(10px);
+    z-index: 0;
+}
+
+/* wave image on top of disc */
+.logo-circle img {
     position: relative;
     z-index: 2;
+    width: 92%;
+    height: auto;
+    display: block;
+    margin: 4% auto 0 auto; /* small inset from disc edge */
 }
 
-/* HERO TEXT */
-.subtitle {
-    margin-top: 30px;
-    letter-spacing: 6px;
-    color: #D4AF37;
-    font-size: 14px;
+/* ---------- HERO TEXT ---------- */
+
+.tagline {
+    margin-top: 32px;
+    font-size: 13px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #d7a944;
 }
+
 .company-name {
-    margin-top: 20px;
-    font-size: 48px;
-    letter-spacing: 8px;
-    font-weight: 300;
-    color: #ffffff;
-}
-.company-arabic {
-    margin-top: 10px;
-    font-size: 30px;
-    color: #D4AF37;
+    margin-top: 18px;
+    font-size: 32px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
-/* PAGE SECTIONS */
-.section {
-    max-width: 900px;
-    margin: 80px auto;
-    padding: 20px;
-    color: #dcdcdc;
+/* main intro paragraph */
+.intro {
+    margin: 28px auto 0 auto;
+    max-width: 800px;
+    font-size: 16px;
     line-height: 1.7;
-    font-size: 18px;
-}
-.section-title {
-    font-size: 28px;
-    color: #D4AF37;
-    margin-bottom: 20px;
+    color: #dfdfdf;
 }
 
-/* CONTACT + JURISDICTION BLOCK */
-.contact-block {
-    margin-top: 40px;
-    font-size: 18px;
-    line-height: 1.9;
-    color: #e3e3e3;
+/* ---------- SECTION HEADERS & BODY ---------- */
+
+.section {
+    margin-top: 64px;
+    text-align: left;
 }
-.contact-block a {
-    color: #D4AF37;
+
+.section-title {
+    font-size: 13px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #d7a944;
+    margin-bottom: 18px;
+}
+
+.section-body {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #dfdfdf;
+}
+
+/* ---------- BOTTOM TWO COLUMNS ---------- */
+
+.bottom-row {
+    margin-top: 56px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+    gap: 40px;
+}
+
+.bottom-column {
+    flex: 1 1 260px;
+    min-width: 240px;
+}
+
+.bottom-title {
+    font-size: 13px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #d7a944;
+    margin-bottom: 18px;
+}
+
+.bottom-body {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #d6d6d6;
+}
+
+.bottom-body a {
+    color: #d7a944;
     text-decoration: none;
 }
 
-.jurisdiction-block {
-    margin-top: 20px;
-    font-size: 16px;
-    color: #B0B0B0;
-    line-height: 1.8;
+/* ---------- FOOTER ---------- */
+
+.footer {
+    margin-top: 60px;
+    font-size: 13px;
+    color: #777c88;
 }
 
-/* FOOTER */
-.footer {
-    margin-top: 120px;
-    padding: 40px;
-    color: #777;
-    font-size: 14px;
+/* responsive tweak */
+@media (max-width: 600px) {
+    .company-name {
+        font-size: 24px;
+        letter-spacing: 0.18em;
+    }
+    .intro, .section-body {
+        font-size: 15px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<div class="hero">
+<div class="page">
 
-    <div class="logo-container">
-        <img src="Wave.png" class="logo-image" alt="">
+    <!-- LOGO + GOLD DISC -->
+    <div class="logo-wrapper">
+        <div class="logo-circle">
+            <!-- change the src to your real wave file name -->
+            <img src="blackshore-wave.png" alt="Blackshore Holdings Wave Logo" />
+        </div>
     </div>
 
-    <div class="subtitle">PRIVATELY OWNED INVESTMENT OFFICE</div>
+    <!-- HERO TEXT -->
+    <div class="tagline">Privately Owned Investment Office</div>
 
-    <div class="company-name">BLACKSHORE HOLDINGS FZ LLC</div>
+    <div class="company-name">Blackshore Holdings FZ LLC</div>
 
-    <div class="company-arabic">بلاكشور القابضة ش.ذ.م.م</div>
-
-</div>
-
-<!-- ABOUT -->
-<div class="section">
-    <div class="section-title">About Blackshore Holdings</div>
-    <p>
-        Blackshore Holdings FZ LLC is a privately owned investment office specialising in
-        offshore structuring, digital asset management, private equity participation,
-        and long-horizon value strategies across emerging and frontier markets.
+    <p class="intro">
+        Blackshore Holdings FZ LLC is a privately owned investment office to steward a portfolio
+        spanning real estate, hospitality, design, ventures, and collectibles. We combine
+        entrepreneurial expertise with cultural insight to nurture businesses that drive growth
+        and innovation.
     </p>
-    <p>
-        Our mandate is centred on disciplined capital allocation, resilient international
-        portfolio architecture, and multi-generational wealth foundations.
-    </p>
-</div>
 
-<!-- INVESTMENT FOCUS -->
-<div class="section">
-    <div class="section-title">Investment Focus</div>
-    <p>
-        • Digital assets & tokenised ecosystems<br>
-        • Private equity & venture participation<br>
-        • Global property acquisitions<br>
-        • Offshore corporate structuring<br>
-        • Generational wealth architecture<br>
-    </p>
-</div>
-
-<!-- CONTACT INFO (RESTORED) -->
-<div class="section">
-    <div class="section-title">Contact</div>
-
-    <div class="contact-block">
-        Blackshore Holdings FZ LLC<br>
-        RAKEZ Free Zone – Ras Al Khaimah, United Arab Emirates<br>
-        Email: <a href="mailto:admin@blackshoreholdings.com">admin@blackshoreholdings.com</a><br>
-        Phone: +971 52 458 3464
+    <!-- INVESTMENT MINDSET -->
+    <div class="section">
+        <div class="section-title">Investment Mindset</div>
+        <div class="section-body">
+            We invest with intent. Guided by the experience of our team, we back only what we
+            believe in. Each opportunity is chosen for its potential to create meaningful growth
+            and build connections across our portfolio. Our strategy is anchored by five
+            interconnected pillars – real estate, hospitality, design, ventures, and collectibles –
+            forming a portfolio that is both diverse and aligned.
+        </div>
     </div>
 
-    <div class="jurisdiction-block">
-        Registered Entity: <strong>Blackshore Holdings FZ LLC</strong><br>
-        RAKEZ License Number: <strong>5034840</strong><br>
-        Jurisdiction: Ras Al Khaimah Economic Zone (UAE)<br>
-        Legal Form: Free Zone Limited Liability Company (FZ-LLC)
-    </div>
-</div>
+    <!-- JURISDICTION & CONTACT -->
+    <div class="bottom-row">
 
-<!-- FOOTER -->
-<div class="footer">
-    © 2025 Blackshore Holdings FZ LLC — All Rights Reserved
+        <div class="bottom-column">
+            <div class="bottom-title">Jurisdiction</div>
+            <div class="bottom-body">
+                RAKEZ Free Zone<br />
+                Ras Al Khaimah, United Arab Emirates
+            </div>
+        </div>
+
+        <div class="bottom-column">
+            <div class="bottom-title">Administrative Contact</div>
+            <div class="bottom-body">
+                <a href="mailto:admin@blackshoreholdings.com">admin@blackshoreholdings.com</a><br />
+                +971 52 856 2464
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2025 Blackshore Holdings FZ LLC — All Rights Reserved
+    </div>
+
 </div>
 
 </body>
