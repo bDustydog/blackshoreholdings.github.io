@@ -5,61 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blackshore Holdings FZ LLC</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Sofia+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg-deep: #020617;
-      --bg-mid:  #050e1b;
-      --bg-top:  #12263f;
+      --bg-mid: #050e1b;
+      --bg-top: #12263f;
       --accent-gold: #d9b873;
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
-    }
-
-    * {
-      box-sizing: border-box;
     }
 
     body {
       margin: 0;
       min-height: 100vh;
       padding: 40px 18px 48px;
-      font-family: "Sofia Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Sofia Sans", sans-serif;
       color: var(--text-main);
       background:
-        radial-gradient(circle at top left, rgba(37, 99, 235, 0.32), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.9), transparent 65%),
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.25), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.8), transparent 65%),
         linear-gradient(135deg, var(--bg-deep), var(--bg-mid) 45%, var(--bg-top));
       position: relative;
       overflow-x: hidden;
-    }
-
-    /* Vignette */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: -60px;
-      background:
-        radial-gradient(circle at top left, transparent 50%, rgba(0,0,0,0.65)),
-        radial-gradient(circle at top right, transparent 55%, rgba(0,0,0,0.55)),
-        radial-gradient(circle at bottom, transparent 55%, rgba(0,0,0,0.75));
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Noise */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: -80px;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 0);
-      background-size: 110px 110px;
-      mix-blend-mode: soft-light;
-      opacity: 0.18;
-      pointer-events: none;
-      z-index: 0;
     }
 
     .content {
@@ -69,46 +38,43 @@
       margin: 0 auto;
     }
 
-    .top-block {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    /* LOGO + GOLD GLOW */
+    /* LOGO + SUBTLE UNDER-GLOW */
     .logo-wrap {
       position: relative;
       display: inline-flex;
-      align-items: center;
       justify-content: center;
-      margin-bottom: 18px;
+      align-items: center;
+      margin-bottom: 25px;
     }
 
+    /* NEW SUBTLE ELLIPTICAL GLOW */
     .logo-wrap::before {
       content: "";
       position: absolute;
-      width: 480px;
-      height: 480px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle,
-          rgba(255,225,150,1) 0%,
-          rgba(255,200,120,0.85) 25%,
-          rgba(240,185,90,0.55) 50%,
-          rgba(200,150,60,0.22) 70%,
-          transparent 92%);
-      filter: blur(24px);
-      opacity: 1;
+      width: 520px;
+      height: 260px;            /* ELLIPSE not circle */
+      bottom: -40px;            /* glow sits BELOW the logo */
+      left: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(
+        ellipse at center,
+        rgba(255,210,120,0.60) 0%,
+        rgba(255,210,120,0.25) 35%,
+        rgba(255,210,120,0.10) 55%,
+        transparent 80%
+      );
+      filter: blur(22px);
+      opacity: 0.85;
       z-index: 0;
-      mix-blend-mode: screen;
-      transform: translateZ(0);
+      pointer-events: none;
     }
 
     .logo-wrap img {
-      position: relative;
-      z-index: 2;
-      width: 260px;
+      width: 420px;   /* BIGGER LOGO */
       height: auto;
       border-radius: 50%;
+      position: relative;
+      z-index: 2;
     }
 
     .eyebrow {
@@ -116,24 +82,24 @@
       text-transform: uppercase;
       letter-spacing: 0.22em;
       color: var(--accent-gold);
-      margin-bottom: 8px;
+      margin-top: 10px;
     }
 
     h1 {
-      margin: 0 0 12px 0;
-      font-family: "Orbitron", system-ui, sans-serif;
+      margin: 8px 0 12px 0;
+      font-family: "Orbitron", sans-serif;
       font-weight: 600;
       letter-spacing: 0.16em;
-      font-size: 22px;
+      font-size: 24px;
       text-transform: uppercase;
     }
 
     .lead {
       max-width: 900px;
       margin: 0 auto;
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1.85;
-      color: var(--text-main);
+      text-align: center;
     }
 
     .section {
@@ -146,30 +112,26 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--accent-gold);
-      margin: 18px 0 6px;
+      margin: 20px 0 6px;
     }
 
     .section-body {
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.9;
-      color: var(--text-main);
-      margin: 0;
     }
 
     .meta-row {
       display: flex;
+      justify-content: space-between;
       flex-wrap: wrap;
-      gap: 40px;
-      margin: 48px auto 0;
+      margin-top: 48px;
       max-width: 900px;
     }
 
     .meta-block {
-      flex: 1;
-      min-width: 240px;
       font-size: 14px;
       line-height: 1.9;
-      color: var(--text-main);
+      min-width: 260px;
     }
 
     .meta-label {
@@ -182,16 +144,10 @@
       display: block;
     }
 
-    .meta-text {
-      font-size: 14px;
-    }
-
-    .meta-right {
-      text-align: right;
-    }
-
     @media (max-width: 768px) {
-      .meta-right { text-align: left; }
+      .meta-row { display: block; text-align: left; }
+      .logo-wrap img { width: 300px; }
+      .logo-wrap::before { width: 360px; height: 180px; bottom: -20px; }
     }
   </style>
 </head>
@@ -199,9 +155,9 @@
 <body>
   <div class="content">
 
-    <div class="top-block">
+    <div class="top-block" style="text-align:center;">
       <div class="logo-wrap">
-        <img src="Logo%20Draft%201.1.png" alt="Blackshore Holdings FZ LLC Seal">
+        <img src="Logo%20Draft%201.1.png" alt="Blackshore Holdings FZ LLC">
       </div>
 
       <div class="eyebrow">Privately Owned Investment Office</div>
@@ -210,36 +166,32 @@
 
       <p class="lead">
         Blackshore Holdings FZ LLC is a privately owned investment office to steward a portfolio spanning real estate,
-        hospitality, design, ventures, and collectibles. We combine entrepreneurial expertise with cultural insight to
-        nurture businesses that drive growth, innovation, and creativity.
+        hospitality, design, ventures, and collectibles. We combine entrepreneurial expertise with cultural insight
+        to nurture businesses that drive growth, innovation, and creativity.
       </p>
     </div>
 
     <div class="section">
       <div class="section-title">Investment Mindset</div>
       <p class="section-body">
-        We invest with intent. Guided by the experience of our team, we back only what we believe in.
-        Each opportunity is chosen for its potential to create meaningful growth and build connections across our
-        portfolio. Our strategy is anchored by five interconnected pillars – real estate, hospitality,
-        design, ventures, and collectibles – forming a portfolio that is both diverse and aligned.
+        We invest with intent. Guided by the experience of our team, we back only what we believe in. Each opportunity
+        is chosen for its potential to create meaningful growth and build connections across our portfolio. Our strategy
+        is anchored by five interconnected pillars – real estate, hospitality, design, ventures, and collectibles –
+        forming a portfolio that is both diverse and aligned.
       </p>
     </div>
 
     <div class="meta-row">
       <div class="meta-block">
         <span class="meta-label">Jurisdiction</span>
-        <div class="meta-text">
-          RAKEZ Free Zone<br>
-          Ras Al Khaimah, United Arab Emirates
-        </div>
+        RAKEZ Free Zone<br>
+        Ras Al Khaimah, United Arab Emirates
       </div>
 
-      <div class="meta-block meta-right">
+      <div class="meta-block" style="text-align:right;">
         <span class="meta-label">Administrative Contact</span>
-        <div class="meta-text">
-          admin@blackshoreholdings.com<br>
-          +971 52 458 3464
-        </div>
+        admin@blackshoreholdings.com<br>
+        +971 52 458 3464
       </div>
     </div>
 
