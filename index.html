@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blackshore Holdings FZ LLC</title>
 
+<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=TASA+Orbiter+Display:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-
-/* ---------------- GLOBAL ---------------- */
+/* -------------- GLOBAL -------------- */
 
 body {
     margin: 0;
@@ -28,7 +28,7 @@ body {
     margin: 0 auto;
 }
 
-/* ---------------- LOGO ---------------- */
+/* -------------- LOGO + GLOW -------------- */
 
 .logo-wrapper {
     margin-top: 80px;
@@ -36,10 +36,14 @@ body {
 
 .logo {
     width: 420px;
-    filter: drop-shadow(0px 0px 35px rgba(255, 209, 85, 0.45));
+    /* premium gold halo: tight, bright, layered */
+    filter:
+        drop-shadow(0 0 18px rgba(255, 215, 130, 0.55))
+        drop-shadow(0 0 40px rgba(255, 195, 90, 0.38))
+        drop-shadow(0 0 75px rgba(255, 170, 55, 0.25));
 }
 
-/* ---------------- HEADINGS ---------------- */
+/* -------------- HEADINGS -------------- */
 
 .subheading {
     margin-top: 10px;
@@ -56,15 +60,15 @@ h1 {
     margin-bottom: 40px;
 }
 
-/* ---------------- BODY TEXT ---------------- */
+/* -------------- BODY TEXT -------------- */
 
 .main-text {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 1.8;
-    margin-bottom: 80px;
+    margin-bottom: 70px;
 }
 
-/* ---------------- INVESTMENT SECTION ---------------- */
+/* -------------- INVESTMENT MINDSET -------------- */
 
 .section-title {
     font-size: 0.9rem;
@@ -76,16 +80,16 @@ h1 {
 
 .section-body {
     margin-top: 12px;
-    font-size: 1.05rem;
+    font-size: 1.0rem;
     line-height: 1.75;
     text-align: left;
 }
 
-/* ---------------- INFO GRID ---------------- */
+/* -------------- INFO GRID (BOTTOM) -------------- */
 
 .info-section {
-    margin-top: 90px;
-    margin-bottom: 120px;
+    margin-top: 85px;
+    margin-bottom: 110px;
 }
 
 .info-grid {
@@ -99,6 +103,10 @@ h1 {
     text-align: left;
 }
 
+.info-box.right {
+    text-align: right; /* make the admin contact flush right */
+}
+
 .info-box h3 {
     font-size: 0.85rem;
     letter-spacing: 0.18em;
@@ -107,28 +115,29 @@ h1 {
 }
 
 .info-box p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.6;
+    margin: 0;
 }
-
 </style>
 </head>
 <body>
 
 <!-- LOGO -->
 <div class="container logo-wrapper">
-    <img src="Logo Draft 1.1.png" class="logo">
+    <!-- make sure this filename matches the logo in your repo -->
+    <img src="Logo Draft 1.1.png" alt="Blackshore Holdings FZ LLC" class="logo">
 </div>
 
-<!-- MAIN TITLE -->
+<!-- TITLE + INTRO -->
 <div class="container">
     <div class="subheading">PRIVATELY OWNED INVESTMENT OFFICE</div>
     <h1>BLACKSHORE HOLDINGS FZ LLC</h1>
 
     <div class="main-text">
-        Blackshore Holdings FZ LLC is a privately owned investment office to steward a portfolio 
-        spanning real estate, hospitality, design, ventures, and collectibles. We combine 
-        entrepreneurial expertise with cultural insight to nurture businesses that drive growth, 
+        Blackshore Holdings FZ LLC is a privately owned investment office to steward a portfolio
+        spanning real estate, hospitality, design, ventures, and collectibles. We combine
+        entrepreneurial expertise with cultural insight to nurture businesses that drive growth,
         innovation, and creativity.
     </div>
 </div>
@@ -137,14 +146,14 @@ h1 {
 <div class="container">
     <div class="section-title">INVESTMENT MINDSET</div>
     <div class="section-body">
-        We invest with intent. Guided by the experience of our team, we back only what we believe in. 
-        Each opportunity is chosen for its potential to create meaningful growth and build connections 
-        across our portfolio. Our strategy is anchored by five interconnected pillars — real estate, 
+        We invest with intent. Guided by the experience of our team, we back only what we believe in.
+        Each opportunity is chosen for its potential to create meaningful growth and build connections
+        across our portfolio. Our strategy is anchored by five interconnected pillars — real estate,
         hospitality, design, ventures, and collectibles — forming a portfolio that is both diverse and aligned.
     </div>
 </div>
 
-<!-- INFO GRID (JURISDICTION + CONTACT) -->
+<!-- JURISDICTION + ADMIN CONTACT -->
 <div class="container info-section">
     <div class="info-grid">
 
@@ -156,7 +165,7 @@ h1 {
             </p>
         </div>
 
-        <div class="info-box">
+        <div class="info-box right">
             <h3>ADMINISTRATIVE CONTACT</h3>
             <p>
                 admin@blackshoreholdings.com<br>
