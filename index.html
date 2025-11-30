@@ -25,7 +25,7 @@ body {
     text-align: center;
 }
 
-/* ---------- HERO TEXT ONLY (NO ARABIC) ---------- */
+/* ---------- HERO TEXT (ENGLISH + ARABIC) ---------- */
 
 .tagline {
     margin-top: 0;
@@ -41,9 +41,19 @@ body {
     letter-spacing: 0.32em;
     text-transform: uppercase;
     font-weight: 500;
+    color: #ffffff;
 }
 
-/* main body text under heading */
+/* Arabic line — proper size + gold, centred, matching card style */
+.company-name-ar {
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: 400;
+    color: #d7a944;
+    letter-spacing: 0.05em;
+}
+
+/* main intro paragraph */
 .intro {
     margin: 28px auto 0 auto;
     max-width: 800px;
@@ -83,14 +93,12 @@ body {
     gap: 40px;
 }
 
-/* left column */
 .bottom-column-left {
     flex: 1 1 260px;
     min-width: 240px;
     text-align: left;
 }
 
-/* right column */
 .bottom-column-right {
     flex: 1 1 260px;
     min-width: 240px;
@@ -131,6 +139,9 @@ body {
         font-size: 24px;
         letter-spacing: 0.18em;
     }
+    .company-name-ar {
+        font-size: 24px;
+    }
     .intro, .section-body {
         font-size: 15px;
     }
@@ -146,10 +157,14 @@ body {
 
 <div class="page">
 
-    <!-- HERO (NO ARABIC LINE) -->
+    <!-- HERO WITH ARABIC -->
     <div class="tagline">PRIVATELY OWNED INVESTMENT OFFICE</div>
 
     <div class="company-name">BLACKSHORE HOLDINGS FZ LLC</div>
+
+    <div class="company-name-ar">
+        بلاكشور هولدينجز ش.ذ.م.م
+    </div>
 
     <p class="intro">
         Blackshore Holdings FZ LLC is a privately owned investment office to steward a portfolio
