@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blackshore Holdings FZ LLC</title>
 
-    <!-- Load Orbitron (Allfeat's font family) -->
+    <!-- Allfeat-style font -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
@@ -20,32 +20,83 @@
             min-height: 100vh;
         }
         .container {
-            background: white;
+            background: #ffffff;
             padding: 40px 50px;
-            max-width: 600px;
+            max-width: 650px;
             border-radius: 6px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             text-align: center;
         }
+        .logo {
+            margin-bottom: 20px;
+        }
+        .logo img {
+            max-width: 220px;
+            height: auto;
+        }
         h1 {
-            font-size: 26px;
+            font-size: 24px;
             letter-spacing: 1px;
-            margin-bottom: 10px;
+            margin: 5px 0 10px 0;
             text-transform: uppercase;
         }
-        p {
-            line-height: 1.6;
-            margin: 10px 0;
-            font-family: Arial, sans-serif; /* body text more readable */
+        .subtitle {
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .body-text {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 8px 0;
         }
         .small {
-            margin-top: 30px;
-            font-size: 12px;
-            color: #666;
+            margin-top: 28px;
+            font-size: 11px;
+            color: #777;
+            font-family: Arial, sans-serif;
+        }
+        hr {
+            margin: 18px auto 20px auto;
+            border: none;
+            border-top: 1px solid #ddd;
+            width: 70%;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="logo">
+            <img src="Logo%20Draft%201.1.png" alt="Blackshore Holdings FZ LLC Seal">
+        </div>
+
         <h1>Blackshore Holdings FZ LLC</h1>
-        <p>Blackshore Holdings FZ LLC is a privately held holding company incorporated in the RAKEZ Free Zone, Ras Al Khaimah, United Arab Emirates.</p>
+        <div class="subtitle">Private Holding Company</div>
+        <hr>
+
+        <p class="body-text">
+            Blackshore Holdings FZ LLC is a privately held holding company incorporated in the RAKEZ Free Zone, Ras Al Khaimah, United Arab Emirates.
+        </p>
+        <p class="body-text">
+            The company functions as an administrative and ownership vehicle for internal family interests. Blackshore does not offer public services or client engagement.
+        </p>
+
+        <p class="body-text">
+            <strong>Jurisdiction:</strong><br>
+            RAKEZ Free Zone, Ras Al Khaimah, UAE
+        </p>
+        <p class="body-text">
+            <strong>Administrative Contact:</strong><br>
+            admin@blackshoreholdings.com<br>
+            +971 52 458 3464
+        </p>
+
+        <p class="small">
+            This website provides basic corporate information for verification and compliance purposes only.
+        </p>
+    </div>
+</body>
+</html>
