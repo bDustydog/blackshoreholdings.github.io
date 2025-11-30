@@ -6,91 +6,152 @@
 <title>Blackshore Holdings FZ LLC</title>
 
 <style>
-/* --- PAGE BACKGROUND --- */
+/* GLOBAL PAGE BACKGROUND */
 body {
     margin: 0;
     padding: 0;
-    background: #06142A; /* Blackshore deep navy */
+    background: #06142A;
     font-family: Arial, sans-serif;
     text-align: center;
     color: #ffffff;
 }
 
-/* --- LOGO + GOLD GLOW WRAPPER --- */
-.logo-container {
-    position: relative;
-    width: 360px;               /* logo width */
-    margin: 90px auto 30px auto;
+/* HERO SECTION */
+.hero {
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
-/* --- SYMMETRICAL GOLD GLOW --- */
+/* LOGO + GOLD GLOW */
+.logo-container {
+    position: relative;
+    width: 360px;
+    margin: 0 auto 30px auto;
+}
+
 .logo-container::before {
     content: "";
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 520px;               /* glow diameter */
+    width: 520px;
     height: 520px;
     border-radius: 50%;
     background: radial-gradient(
         circle,
-        rgba(255, 215, 0, 0.80) 0%,    /* intense gold core */
-        rgba(255, 215, 0, 0.55) 25%,   /* bright halo */
-        rgba(255, 215, 0, 0.22) 50%,   /* mid fade */
-        rgba(255, 215, 0, 0.06) 70%,   /* faint outer ring */
-        rgba(255, 215, 0, 0.00) 100%   /* fully transparent edge */
+        rgba(255, 215, 0, 0.85) 0%,
+        rgba(255, 215, 0, 0.55) 25%,
+        rgba(255, 215, 0, 0.22) 50%,
+        rgba(255, 215, 0, 0.06) 70%,
+        rgba(255, 215, 0, 0) 100%
     );
-    filter: blur(18px);          /* smooth edges */
+    filter: blur(18px);
     z-index: 1;
 }
 
-/* --- WAVE IMAGE --- */
 .logo-image {
+    width: 100%;
     position: relative;
     z-index: 2;
-    width: 100%;
-    display: block;
 }
 
-/* --- TEXT STYLES --- */
+/* TEXT */
 .subtitle {
-    margin-top: 25px;
+    margin-top: 30px;
     letter-spacing: 6px;
-    color: #D4AF37;             /* muted gold */
-    font-size: 13px;
+    color: #D4AF37;
+    font-size: 14px;
 }
 
 .company-name {
-    margin-top: 18px;
-    font-size: 44px;
+    margin-top: 20px;
+    font-size: 48px;
     letter-spacing: 8px;
     font-weight: 300;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .company-arabic {
     margin-top: 10px;
-    font-size: 28px;
+    font-size: 30px;
     color: #D4AF37;
 }
+
+/* REST OF PAGE CONTENT (RESTORED) */
+.section {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 20px;
+    color: #dcdcdc;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+.section-title {
+    font-size: 28px;
+    color: #D4AF37;
+    margin-bottom: 20px;
+}
+
+.footer {
+    margin-top: 120px;
+    padding: 40px;
+    color: #777;
+    font-size: 14px;
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- WAVE + SYMMETRICAL GOLD GLOW -->
-<div class="logo-container">
-    <!-- make sure this path matches your actual image file -->
-    <img src="blackshore-wave.png" class="logo-image" alt="">
+<!-- HERO SECTION -->
+<div class="hero">
+
+    <div class="logo-container">
+        <img src="YOUR-WAVE-FILENAME.png" class="logo-image" alt="">
+    </div>
+
+    <div class="subtitle">PRIVATELY OWNED INVESTMENT OFFICE</div>
+
+    <div class="company-name">BLACKSHORE HOLDINGS FZ LLC</div>
+
+    <div class="company-arabic">بلاكشور القابضة ش.ذ.م.م</div>
+
 </div>
 
-<!-- TEXT UNDER WAVE -->
-<div class="subtitle">PRIVATELY OWNED INVESTMENT OFFICE</div>
+<!-- RESTORED CONTENT SECTION -->
+<div class="section">
+    <div class="section-title">About Blackshore Holdings</div>
+    <p>
+        Blackshore Holdings FZ LLC is a privately owned investment office specialising
+        in multi-jurisdictional portfolio structuring, digital asset management,
+        private equity positions, and long-horizon value strategies across emerging
+        and frontier markets.
+    </p>
+    <p>
+        Our mandate prioritises disciplined capital allocation, international
+        diversification, and resilient asset foundations that support long-term
+        family wealth and philanthropic initiatives.
+    </p>
+</div>
 
-<div class="company-name">BLACKSHORE HOLDINGS FZ LLC</div>
+<div class="section">
+    <div class="section-title">Our Investment Focus</div>
+    <p>
+        • Digital assets and tokenised ecosystems  
+        • Private equity and venture participation  
+        • Global property acquisitions  
+        • Offshore corporate structuring  
+        • Generational wealth planning  
+    </p>
+</div>
 
-<div class="company-arabic">بلاكشور القابضة ش.ذ.م.م</div>
+<!-- FOOTER -->
+<div class="footer">
+    © 2025 Blackshore Holdings FZ LLC — All Rights Reserved
+</div>
 
 </body>
 </html>
