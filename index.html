@@ -5,48 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blackshore Holdings FZ LLC</title>
 
-  <!-- Orbitron used as stand-in for TASA Orbiter Display, Sofia Sans for body -->
+  <!-- Orbitron as stand-in for TASA Orbiter Display, Sofia Sans for body -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Sofia+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg-deep: #020617;
-      --bg-mid:  #071426;
+      --bg-mid:  #050e1b;
       --bg-top:  #12263f;
-      --panel-bg: rgba(10, 16, 32, 0.78);
-      --border-soft: rgba(255,255,255,0.10);
       --accent-gold: #d9b873;
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px 16px;
-      font-family: "Sofia Sans", system-ui, sans-serif;
+      padding: 40px 18px 48px;
+      font-family: "Sofia Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text-main);
       background:
         radial-gradient(circle at top left, rgba(37, 99, 235, 0.32), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.85), transparent 65%),
+        radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.9), transparent 65%),
         linear-gradient(135deg, var(--bg-deep), var(--bg-mid) 45%, var(--bg-top));
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     /* Soft vignette */
     body::before {
       content: "";
       position: fixed;
-      inset: -40px;
+      inset: -60px;
       background:
         radial-gradient(circle at top left, transparent 50%, rgba(0,0,0,0.65)),
-        radial-gradient(circle at top right, transparent 55%, rgba(0,0,0,0.6)),
+        radial-gradient(circle at top right, transparent 55%, rgba(0,0,0,0.55)),
         radial-gradient(circle at bottom, transparent 55%, rgba(0,0,0,0.75));
       pointer-events: none;
       z-index: 0;
@@ -56,7 +53,7 @@
     body::after {
       content: "";
       position: fixed;
-      inset: -50px;
+      inset: -80px;
       background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 0);
       background-size: 110px 110px;
       mix-blend-mode: soft-light;
@@ -65,28 +62,16 @@
       z-index: 0;
     }
 
-    .shell {
-      width: 100%;
-      max-width: 760px;
+    .content {
       position: relative;
       z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    .panel {
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      background: radial-gradient(circle at top, rgba(15,23,42,0.96), var(--panel-bg));
-      border-radius: 24px;
-      border: 1px solid var(--border-soft);
-      box-shadow:
-        0 28px 80px rgba(0,0,0,0.8),
-        0 0 0 1px rgba(148,163,184,0.06);
-      padding: 40px 22px 34px;
+    .top-block {
       text-align: center;
-    }
-
-    @media (min-width: 720px) {
-      .panel { padding: 46px 72px 36px; }
+      margin-bottom: 40px;
     }
 
     .logo-wrap {
@@ -94,30 +79,30 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
-    /* Light gold glow behind logo */
+    /* Gold glow behind logo */
     .logo-wrap::before {
       content: "";
       position: absolute;
-      width: 280px;
-      height: 280px;
+      width: 320px;
+      height: 320px;
       border-radius: 50%;
       background:
         radial-gradient(circle,
-          rgba(217,184,115,0.72) 0%,
-          rgba(217,184,115,0.12) 40%,
-          transparent 72%);
-      filter: blur(12px);
-      opacity: 0.9;
+          rgba(217,184,115,0.75) 0%,
+          rgba(217,184,115,0.14) 42%,
+          transparent 75%);
+      filter: blur(14px);
+      opacity: 0.95;
       z-index: 0;
     }
 
     .logo-wrap img {
       position: relative;
       z-index: 1;
-      max-width: 240px;
+      max-width: 260px;
       height: auto;
       border-radius: 50%;
     }
@@ -127,92 +112,141 @@
       text-transform: uppercase;
       letter-spacing: 0.22em;
       color: var(--accent-gold);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     h1 {
-      margin: 0 0 16px 0;
+      margin: 0 0 12px 0;
       font-family: "TASA Orbiter Display", "Orbitron", system-ui, sans-serif;
       font-weight: 600;
       letter-spacing: 0.16em;
-      font-size: 20px;
+      font-size: 22px;
       text-transform: uppercase;
     }
 
     .lead {
-      margin: 0 auto 24px;
-      max-width: 620px;
-      font-size: 15px;
-      line-height: 1.8;
-      color: var(--text-main);
-    }
-
-    .meta {
+      max-width: 780px;
       margin: 0 auto;
-      max-width: 520px;
-      font-size: 14px;
-      line-height: 1.8;
-      text-align: left;
+      font-size: 16px;
+      line-height: 1.85;
       color: var(--text-main);
     }
 
-    .meta p { margin: 0 0 14px; }
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-    .label {
+    .section-title {
+      font-size: 15px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin: 18px 0 6px;
+    }
+
+    .section-body {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--text-main);
+      margin: 0;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin: 36px auto 0;
+      max-width: 900px;
+    }
+
+    .meta-block {
+      flex: 1;
+      min-width: 240px;
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--text-main);
+    }
+
+    .meta-label {
       font-weight: 600;
-      color: #e5e7eb;
-    }
-
-    .footnote {
-      margin-top: 26px;
-      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 12px;
       color: var(--text-muted);
-      border-top: 1px solid rgba(148,163,184,0.3);
-      padding-top: 10px;
-      max-width: 620px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: left;
+      margin-bottom: 4px;
+      display: block;
     }
 
-    @media (max-width: 640px) {
-      .meta, .footnote { text-align: center; }
+    .meta-text {
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 28px 16px 40px;
+      }
+      .top-block {
+        margin-bottom: 28px;
+      }
+      .lead, .section, .meta-row {
+        text-align: left;
+      }
+      .top-block {
+        text-align: left;
+      }
+      .top-block h1, .top-block .eyebrow {
+        text-align: left;
+      }
+      .top-block .logo-wrap {
+        margin-bottom: 14px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <div class="panel">
-
+  <div class="content">
+    <div class="top-block">
       <div class="logo-wrap">
         <img src="Logo%20Draft%201.1.png" alt="Blackshore Holdings FZ LLC Seal">
       </div>
 
-      <div class="eyebrow">Private Holding Company</div>
+      <div class="eyebrow">Privately Owned Investment Office</div>
       <h1>BLACKSHORE HOLDINGS FZ LLC</h1>
 
       <p class="lead">
-        Blackshore Holdings FZ LLC maintains a portfolio spanning investments, ventures and selected assets.
-        We blend strategic insight with disciplined governance to support the development, performance and long-term stability of our internal holdings.
+        Blackshore Holdings FZ LLC is a privately owned investment office to steward a portfolio spanning real estate,
+        hospitality, design, ventures, and collectibles. We combine entrepreneurial expertise with cultural insight to
+        nurture businesses that drive growth, innovation, and creativity.
       </p>
+    </div>
 
-      <div class="meta">
-        <p>
-          <span class="label">Jurisdiction</span><br>
-          RAKEZ Free Zone, Ras Al Khaimah, UAE
-        </p>
+    <div class="section">
+      <div class="section-title">Investment Mindset</div>
+      <p class="section-body">
+        We invest with intent. Guided by the experience of our team, we back only what we believe in. Each opportunity
+        is chosen for its potential to create meaningful growth and build connections across our portfolio. Our strategy
+        is anchored by five interconnected pillars – real estate, hospitality, design, ventures, and collectibles –
+        forming a portfolio that is both diverse and aligned.
+      </p>
+    </div>
 
-        <p>
-          <span class="label">Administrative Contact</span><br>
-          admin@blackshoreholdings.com<br>
-          +971&nbsp;52&nbsp;458&nbsp;3464
-        </p>
+    <div class="meta-row">
+      <div class="meta-block">
+        <span class="meta-label">Jurisdiction</span>
+        <div class="meta-text">
+          RAKEZ Free Zone<br>
+          Ras Al Khaimah, United Arab Emirates
+        </div>
       </div>
 
-      <p class="footnote">
-        This website provides limited corporate information solely for verification and compliance purposes and does not constitute an offer of services, securities or any form of solicitation.
-      </p>
-
+      <div class="meta-block" style="text-align:right;">
+        <span class="meta-label">Administrative Contact</span>
+        <div class="meta-text">
+          admin@blackshoreholdings.com<br>
+          +971 52 458 3464
+        </div>
+      </div>
     </div>
   </div>
 </body>
