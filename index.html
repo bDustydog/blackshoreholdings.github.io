@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blackshore Holdings FZ LLC</title>
 
-  <!-- Orbitron as stand-in for TASA Orbiter Display, Sofia Sans for body -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Sofia+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Sofia+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -36,7 +36,7 @@
       overflow-x: hidden;
     }
 
-    /* Soft vignette */
+    /* Vignette */
     body::before {
       content: "";
       position: fixed;
@@ -49,12 +49,12 @@
       z-index: 0;
     }
 
-    /* Static subtle noise */
+    /* Noise */
     body::after {
       content: "";
       position: fixed;
       inset: -80px;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 0);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 0);
       background-size: 110px 110px;
       mix-blend-mode: soft-light;
       opacity: 0.18;
@@ -74,6 +74,7 @@
       margin-bottom: 40px;
     }
 
+    /* LOGO + GOLD GLOW */
     .logo-wrap {
       position: relative;
       display: inline-flex;
@@ -82,27 +83,30 @@
       margin-bottom: 18px;
     }
 
-    /* Gold glow behind logo */
     .logo-wrap::before {
       content: "";
       position: absolute;
-      width: 320px;
-      height: 320px;
+      width: 480px;
+      height: 480px;
       border-radius: 50%;
       background:
         radial-gradient(circle,
-          rgba(217,184,115,0.75) 0%,
-          rgba(217,184,115,0.14) 42%,
-          transparent 75%);
-      filter: blur(14px);
-      opacity: 0.95;
+          rgba(255,225,150,1) 0%,
+          rgba(255,200,120,0.85) 25%,
+          rgba(240,185,90,0.55) 50%,
+          rgba(200,150,60,0.22) 70%,
+          transparent 92%);
+      filter: blur(24px);
+      opacity: 1;
       z-index: 0;
+      mix-blend-mode: screen;
+      transform: translateZ(0);
     }
 
     .logo-wrap img {
       position: relative;
-      z-index: 1;
-      max-width: 260px;
+      z-index: 2;
+      width: 260px;
       height: auto;
       border-radius: 50%;
     }
@@ -117,7 +121,7 @@
 
     h1 {
       margin: 0 0 12px 0;
-      font-family: "TASA Orbiter Display", "Orbitron", system-ui, sans-serif;
+      font-family: "Orbitron", system-ui, sans-serif;
       font-weight: 600;
       letter-spacing: 0.16em;
       font-size: 22px;
@@ -125,7 +129,7 @@
     }
 
     .lead {
-      max-width: 780px;
+      max-width: 900px;
       margin: 0 auto;
       font-size: 16px;
       line-height: 1.85;
@@ -134,7 +138,7 @@
 
     .section {
       max-width: 900px;
-      margin: 0 auto;
+      margin: 40px auto 0;
     }
 
     .section-title {
@@ -156,7 +160,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 40px;
-      margin: 36px auto 0;
+      margin: 48px auto 0;
       max-width: 900px;
     }
 
@@ -182,36 +186,26 @@
       font-size: 14px;
     }
 
+    .meta-right {
+      text-align: right;
+    }
+
     @media (max-width: 768px) {
-      body {
-        padding: 28px 16px 40px;
-      }
-      .top-block {
-        margin-bottom: 28px;
-      }
-      .lead, .section, .meta-row {
-        text-align: left;
-      }
-      .top-block {
-        text-align: left;
-      }
-      .top-block h1, .top-block .eyebrow {
-        text-align: left;
-      }
-      .top-block .logo-wrap {
-        margin-bottom: 14px;
-      }
+      .meta-right { text-align: left; }
     }
   </style>
 </head>
+
 <body>
   <div class="content">
+
     <div class="top-block">
       <div class="logo-wrap">
         <img src="Logo%20Draft%201.1.png" alt="Blackshore Holdings FZ LLC Seal">
       </div>
 
       <div class="eyebrow">Privately Owned Investment Office</div>
+
       <h1>BLACKSHORE HOLDINGS FZ LLC</h1>
 
       <p class="lead">
@@ -224,10 +218,10 @@
     <div class="section">
       <div class="section-title">Investment Mindset</div>
       <p class="section-body">
-        We invest with intent. Guided by the experience of our team, we back only what we believe in. Each opportunity
-        is chosen for its potential to create meaningful growth and build connections across our portfolio. Our strategy
-        is anchored by five interconnected pillars – real estate, hospitality, design, ventures, and collectibles –
-        forming a portfolio that is both diverse and aligned.
+        We invest with intent. Guided by the experience of our team, we back only what we believe in.
+        Each opportunity is chosen for its potential to create meaningful growth and build connections across our
+        portfolio. Our strategy is anchored by five interconnected pillars – real estate, hospitality,
+        design, ventures, and collectibles – forming a portfolio that is both diverse and aligned.
       </p>
     </div>
 
@@ -240,7 +234,7 @@
         </div>
       </div>
 
-      <div class="meta-block" style="text-align:right;">
+      <div class="meta-block meta-right">
         <span class="meta-label">Administrative Contact</span>
         <div class="meta-text">
           admin@blackshoreholdings.com<br>
@@ -248,6 +242,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </body>
 </html>
