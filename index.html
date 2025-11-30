@@ -10,18 +10,20 @@
   <style>
     :root {
       --bg-deep: #020617;
-      --bg-mid: #050e1b;
-      --bg-top: #12263f;
+      --bg-mid:  #050e1b;
+      --bg-top:  #12263f;
       --accent-gold: #d9b873;
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
     }
 
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       min-height: 100vh;
       padding: 40px 18px 48px;
-      font-family: "Sofia Sans", sans-serif;
+      font-family: "Sofia Sans", system-ui, sans-serif;
       color: var(--text-main);
       background:
         radial-gradient(circle at top left, rgba(37, 99, 235, 0.25), transparent 55%),
@@ -31,6 +33,18 @@
       overflow-x: hidden;
     }
 
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -80px;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 0);
+      background-size: 110px 110px;
+      mix-blend-mode: soft-light;
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+    }
+
     .content {
       position: relative;
       z-index: 1;
@@ -38,7 +52,12 @@
       margin: 0 auto;
     }
 
-    /* LOGO + SUBTLE UNDER-GLOW */
+    .top-block {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* LOGO + TIGHT ALL-AROUND HALO */
     .logo-wrap {
       position: relative;
       display: inline-flex;
@@ -47,34 +66,35 @@
       margin-bottom: 25px;
     }
 
-    /* NEW SUBTLE ELLIPTICAL GLOW */
     .logo-wrap::before {
       content: "";
       position: absolute;
       width: 520px;
-      height: 260px;            /* ELLIPSE not circle */
-      bottom: -40px;            /* glow sits BELOW the logo */
+      height: 520px;
+      border-radius: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      top: 50%;
+      transform: translate(-50%, -50%);
       background: radial-gradient(
-        ellipse at center,
-        rgba(255,210,120,0.60) 0%,
-        rgba(255,210,120,0.25) 35%,
-        rgba(255,210,120,0.10) 55%,
-        transparent 80%
+        circle,
+        rgba(255,210,120,0) 0%,
+        rgba(255,210,120,0) 55%,
+        rgba(255,210,120,0.45) 72%,
+        rgba(255,210,120,0.18) 85%,
+        transparent 100%
       );
-      filter: blur(22px);
-      opacity: 0.85;
-      z-index: 0;
+      filter: blur(20px);
+      opacity: 0.9;
       pointer-events: none;
+      z-index: 0;
     }
 
     .logo-wrap img {
-      width: 420px;   /* BIGGER LOGO */
+      width: 420px;  /* BIG LOGO */
       height: auto;
       border-radius: 50%;
       position: relative;
-      z-index: 2;
+      z-index: 1;
     }
 
     .eyebrow {
@@ -87,7 +107,7 @@
 
     h1 {
       margin: 8px 0 12px 0;
-      font-family: "Orbitron", sans-serif;
+      font-family: "Orbitron", system-ui, sans-serif;
       font-weight: 600;
       letter-spacing: 0.16em;
       font-size: 24px;
@@ -147,7 +167,10 @@
     @media (max-width: 768px) {
       .meta-row { display: block; text-align: left; }
       .logo-wrap img { width: 300px; }
-      .logo-wrap::before { width: 360px; height: 180px; bottom: -20px; }
+      .logo-wrap::before {
+        width: 380px;
+        height: 380px;
+      }
     }
   </style>
 </head>
@@ -155,7 +178,7 @@
 <body>
   <div class="content">
 
-    <div class="top-block" style="text-align:center;">
+    <div class="top-block">
       <div class="logo-wrap">
         <img src="Logo%20Draft%201.1.png" alt="Blackshore Holdings FZ LLC">
       </div>
