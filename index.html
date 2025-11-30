@@ -6,7 +6,6 @@
 <title>Blackshore Holdings FZ LLC</title>
 
 <style>
-/* ---------- GLOBAL ---------- */
 * {
     box-sizing: border-box;
 }
@@ -19,21 +18,21 @@ body {
     color: #f5f5f5;
 }
 
-/* page wrapper */
+/* PAGE WRAPPER */
 .page {
     max-width: 960px;
     margin: 0 auto;
     padding: 60px 20px 80px 20px;
-    text-align: center;
 }
 
-/* ---------- LOGO + GOLD DISC ---------- */
+/* ---------- LOGO + GOLD BEHIND (NOT OVER) ---------- */
 
 .logo-wrapper {
-    margin-bottom: 36px;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-/* container that holds both the disc + glow + wave */
+/* container holding halo + disc + wave */
 .logo-circle {
     position: relative;
     width: 260px;
@@ -41,7 +40,7 @@ body {
     margin: 0 auto;
 }
 
-/* solid golden disc */
+/* solid golden disc BEHIND the wave */
 .logo-circle::before {
     content: "";
     position: absolute;
@@ -50,17 +49,17 @@ body {
     background: radial-gradient(
         circle,
         #ffd975 0%,      /* bright centre */
-        #f2c04b 48%,     /* mid gold */
-        #c4952b 100%     /* darker rim */
+        #f3c24f 45%,     /* mid-gold */
+        #c5942a 100%     /* darker rim */
     );
     z-index: 1;
 }
 
-/* outer soft glow */
+/* soft halo around disc */
 .logo-circle::after {
     content: "";
     position: absolute;
-    inset: -35px;        /* expand beyond disc */
+    inset: -40px; /* extends beyond disc */
     border-radius: 50%;
     background: radial-gradient(
         circle,
@@ -73,14 +72,14 @@ body {
     z-index: 0;
 }
 
-/* wave image on top of disc */
+/* wave image – ON TOP so waves stay white/blue */
 .logo-circle img {
     position: relative;
     z-index: 2;
     width: 92%;
     height: auto;
     display: block;
-    margin: 4% auto 0 auto; /* small inset from disc edge */
+    margin: 4% auto 0 auto;
 }
 
 /* ---------- HERO TEXT ---------- */
@@ -90,6 +89,7 @@ body {
     font-size: 13px;
     letter-spacing: 0.35em;
     text-transform: uppercase;
+    text-align: center;
     color: #d7a944;
 }
 
@@ -98,23 +98,23 @@ body {
     font-size: 32px;
     letter-spacing: 0.32em;
     text-transform: uppercase;
+    text-align: center;
     font-weight: 500;
 }
 
-/* main intro paragraph */
 .intro {
     margin: 28px auto 0 auto;
     max-width: 800px;
     font-size: 16px;
     line-height: 1.7;
+    text-align: center;
     color: #dfdfdf;
 }
 
-/* ---------- SECTION HEADERS & BODY ---------- */
+/* ---------- SECTIONS ---------- */
 
 .section {
     margin-top: 64px;
-    text-align: left;
 }
 
 .section-title {
@@ -131,14 +131,13 @@ body {
     color: #dfdfdf;
 }
 
-/* ---------- BOTTOM TWO COLUMNS ---------- */
+/* ---------- JURISDICTION + CONTACT (2 COLUMNS) ---------- */
 
 .bottom-row {
     margin-top: 56px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    text-align: left;
     gap: 40px;
 }
 
@@ -172,9 +171,10 @@ body {
     margin-top: 60px;
     font-size: 13px;
     color: #777c88;
+    text-align: center;
 }
 
-/* responsive tweak */
+/* responsive */
 @media (max-width: 600px) {
     .company-name {
         font-size: 24px;
@@ -191,11 +191,11 @@ body {
 
 <div class="page">
 
-    <!-- LOGO + GOLD DISC -->
+    <!-- LOGO + GOLD BEHIND -->
     <div class="logo-wrapper">
         <div class="logo-circle">
-            <!-- change the src to your real wave file name -->
-            <img src="Wave.png" alt="Blackshore Holdings Wave Logo" />
+            <!-- this image should be your white/blue Hokusai wave with transparent background -->
+            <img src="wave.png" alt="Blackshore Wave Logo" />
         </div>
     </div>
 
@@ -205,8 +205,9 @@ body {
     <div class="company-name">Blackshore Holdings FZ LLC</div>
 
     <p class="intro">
-        Blackshore Holdings FZ LLC is a privately owned investment office to steward a profitable portfolio.
-        We combine entrepreneurial expertise with cultural insight to nurture businesses that drive growth
+        Blackshore Holdings FZ LLC is a privately owned investment office to steward a portfolio
+        spanning real estate, hospitality, design, ventures, and collectibles. We combine
+        entrepreneurial expertise with cultural insight to nurture businesses that drive growth
         and innovation.
     </p>
 
@@ -222,7 +223,7 @@ body {
         </div>
     </div>
 
-    <!-- JURISDICTION & CONTACT -->
+    <!-- JURISDICTION & ADMIN CONTACT -->
     <div class="bottom-row">
 
         <div class="bottom-column">
