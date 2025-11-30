@@ -115,6 +115,7 @@
       font-size: 16px;
       line-height: 1.7;
       color: var(--text-muted);
+      text-align: center;
     }
 
     /* BODY CONTENT -------------------------------------------------------- */
@@ -129,6 +130,7 @@
       text-transform: uppercase;
       color: var(--text-gold);
       margin-bottom: 12px;
+      text-align: center;
     }
 
     .section-title {
@@ -138,13 +140,16 @@
       letter-spacing: 0.22em;
       margin-bottom: 18px;
       color: var(--text-main);
+      text-align: center;
     }
 
     .section-body {
       max-width: 880px;
-      font-size: 15px;
+      margin: 0 auto;
+      font-size: 16px;          /* match hero-subtitle size */
       line-height: 1.9;
       color: var(--text-muted);
+      text-align: center;       /* centre like the paragraph above */
     }
 
     /* FOOTER ROW ---------------------------------------------------------- */
@@ -184,6 +189,17 @@
 
     .footer-col.right .footer-line {
       direction: ltr;
+    }
+
+    /* make footer email clickable but keep same look */
+    .footer-line a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer-line a:hover {
+      color: var(--text-gold);
+      text-decoration: underline;
     }
 
     @media (max-width: 768px) {
@@ -234,10 +250,9 @@
         </div>
 
         <p class="hero-subtitle">
-          Blackshore Holdings FZ LLC is a privately owned investment office to steward a portfolio
-          spanning real estate, hospitality, design, ventures, and collectibles. We combine
-          entrepreneurial expertise with cultural insight to nurture businesses that drive growth,
-          innovation, and creativity.
+          Blackshore Holdings FZ LLC is a privately owned investment office to steward an international
+          portfolio of investments and ventures. We combine entrepreneurial expertise with cultural
+          insight to nurture businesses that drive growth, innovation, and creativity.
         </p>
       </header>
 
@@ -245,11 +260,11 @@
       <section class="section">
         <div class="section-label">Investment Mindset</div>
         <div class="section-body">
-          We invest with intent. Guided by the experience of our team, we back only what we
-          believe in. Each opportunity is chosen for its potential to create meaningful growth
-          and build connections across our portfolio. Our strategy is anchored by five
-          interconnected pillars — real estate, hospitality, design, ventures, and collectibles —
-          forming a portfolio that is both diverse and aligned.
+          We invest with intent. Guided by the experience of our team, we back only what we believe in.
+          Each opportunity is chosen for its potential to create meaningful growth and build connections
+          across our portfolio. Our strategy is anchored by five interconnected pillars — real estate,
+          finance markets, design, ventures, and collectibles — forming a portfolio that is both diverse
+          and aligned.
         </div>
       </section>
 
@@ -263,7 +278,11 @@
 
         <div class="footer-col right">
           <div class="footer-label">Administrative Contact</div>
-          <div class="footer-line">admin@blackshoreholdings.com</div>
+          <div class="footer-line">
+            <a href="mailto:admin@blackshoreholdings.com">
+              admin@blackshoreholdings.com
+            </a>
+          </div>
           <div class="footer-line">+971 52 458 3464</div>
         </div>
       </section>
