@@ -1,102 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blackshore Holdings FZ LLC</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blackshore Holdings FZ LLC</title>
 
-    <!-- Allfeat-style font -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Allfeat-style font for headings -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Orbitron', sans-serif;
-            background: #f5f5f5;
-            color: #222;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-        .container {
-            background: #ffffff;
-            padding: 40px 50px;
-            max-width: 650px;
-            border-radius: 6px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-        .logo {
-            margin-bottom: 20px;
-        }
-        .logo img {
-            max-width: 220px;
-            height: auto;
-        }
-        h1 {
-            font-size: 24px;
-            letter-spacing: 1px;
-            margin: 5px 0 10px 0;
-            text-transform: uppercase;
-        }
-        .subtitle {
-            font-size: 14px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #666;
-            margin-bottom: 20px;
-        }
-        .body-text {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            line-height: 1.7;
-            margin: 8px 0;
-        }
-        .small {
-            margin-top: 28px;
-            font-size: 11px;
-            color: #777;
-            font-family: Arial, sans-serif;
-        }
-        hr {
-            margin: 18px auto 20px auto;
-            border: none;
-            border-top: 1px solid #ddd;
-            width: 70%;
-        }
-    </style>
+  <style>
+    :root {
+      --bg-deep: #030711;
+      --bg-mid: #09172a;
+      --bg-accent: #122b46;
+      --card: #0b1220;
+      --border-soft: rgba(255,255,255,0.08);
+      --accent: #d9b873;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, #1f4e7a 0, transparent 55%),
+        radial-gradient(circle at bottom right, #102032 0, transparent 65%),
+        linear-gradient(135deg, var(--bg-deep), var(--bg-mid));
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1100px;
+      margin: 32px auto;
+      padding: 24px 16px;
+    }
+
+    .frame {
+      border-radius: 18px;
+      background: radial-gradient(circle at top, #111827, #020617);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.65);
+      padding: 28px 22px;
+    }
+
+    @media (min-width: 900px) {
+      .frame {
+        padding: 34px 40px;
+      }
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+      }
+    }
+
+    .hero-text {
+      flex: 1.4;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 0.12em;
+      font-size: 20px;
+      text-transform: uppercase;
+      margin: 0 0 14px 0;
+    }
+
+    .subhead {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .meta {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-main);
+    }
+
+    .meta strong {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .hero-card {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .badge {
+      background: radial-gradient(circle at top, #111827, #020617);
+      border-radius: 20px;
+      border: 1px solid var(--border-soft);
+      padding: 22px 22px 18px;
+      max-width: 320px;
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    }
+
+    .badge-logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .badge-logo img {
+      max-width: 190px;
+      height: auto;
+      border-radius: 999px;
+    }
+
+    .badge-title {
+      font-family: 'Orbitron', sans-serif;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .badge-line {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--accent), transparent);
+      margin: 6px 0 10px;
+      opacity: 0.7;
+    }
+
+    .badge-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .footer-note {
+      margin-top: 26px;
+      border-top: 1px solid rgba(249,250,251,0.04);
+      padding-top: 14px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: left;
+    }
+
+    @media (max-width: 899px) {
+      .footer-note {
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <img src="Logo%20Draft%201.1.png" alt="Blackshore Holdings FZ LLC Seal">
+  <div class="shell">
+    <div class="frame">
+      <div class="hero">
+        <div class="hero-text">
+          <div class="eyebrow">UAE Registered Entity</div>
+          <h1>BLACKSHORE HOLDINGS FZ LLC</h1>
+          <p class="subhead">
+            A privately held holding company based in the RAKEZ Free Zone, Ras Al Khaimah, providing a central vehicle for ownership, treasury and governance of internal family interests.
+          </p>
+
+          <div class="meta">
+            <p>
+              <strong>Jurisdiction</strong><br>
+              RAKEZ Free Zone, Ras Al Khaimah, United Arab Emirates
+            </p>
+            <p>
+              <strong>Administrative Contact</strong><br>
+              admin@blackshoreholdings.com<br>
+              +971&nbsp;52&nbsp;458&nbsp;3464
+            </p>
+            <p>
+              <strong>External Services</strong><br>
+              Blackshore does not offer public services, client onboarding or external investment opportunities.
+            </p>
+          </div>
         </div>
 
-        <h1>Blackshore Holdings FZ LLC</h1>
-        <div class="subtitle">Private Holding Company</div>
-        <hr>
+        <div class="hero-card">
+          <div class="badge">
+            <div class="badge-logo">
+              <img src="Logo%20Draft%201.1.png" alt="Blackshore Holdings FZ LLC Seal">
+            </div>
+            <div class="badge-title">Registration & Identity</div>
+            <div class="badge-line"></div>
+            <div class="badge-text">
+              Free Zone Limited Liability Company (FZ-LLC)<br>
+              Registered in Ras Al Khaimah, UAE.
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <p class="body-text">
-            Blackshore Holdings FZ LLC is a privately held holding company incorporated in the RAKEZ Free Zone, Ras Al Khaimah, United Arab Emirates.
-        </p>
-        <p class="body-text">
-            The company functions as an administrative and ownership vehicle for internal family interests. Blackshore does not offer public services or client engagement.
-        </p>
-
-        <p class="body-text">
-            <strong>Jurisdiction:</strong><br>
-            RAKEZ Free Zone, Ras Al Khaimah, UAE
-        </p>
-        <p class="body-text">
-            <strong>Administrative Contact:</strong><br>
-            admin@blackshoreholdings.com<br>
-            +971 52 458 3464
-        </p>
-
-        <p class="small">
-            This website provides basic corporate information for verification and compliance purposes only.
-        </p>
+      <div class="footer-note">
+        This website provides basic corporate information for verification and compliance purposes only and does not constitute an offer of services, securities, tokens or any form of solicitation.
+      </div>
     </div>
+  </div>
 </body>
 </html>
