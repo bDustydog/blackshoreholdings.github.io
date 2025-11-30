@@ -18,78 +18,20 @@ body {
     color: #f5f5f5;
 }
 
-/* PAGE WRAPPER */
 .page {
     max-width: 960px;
     margin: 0 auto;
     padding: 60px 20px 80px 20px;
-}
-
-/* ---------- LOGO + GOLD BEHIND (NOT OVER) ---------- */
-
-.logo-wrapper {
     text-align: center;
-    margin-bottom: 40px;
 }
 
-/* container holding halo + disc + wave */
-.logo-circle {
-    position: relative;
-    width: 260px;
-    height: 260px;
-    margin: 0 auto;
-}
-
-/* solid golden disc BEHIND the wave */
-.logo-circle::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        #ffd975 0%,      /* bright centre */
-        #f3c24f 45%,     /* mid-gold */
-        #c5942a 100%     /* darker rim */
-    );
-    z-index: 1;
-}
-
-/* soft halo around disc */
-.logo-circle::after {
-    content: "";
-    position: absolute;
-    inset: -40px; /* extends beyond disc */
-    border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        rgba(255, 219, 120, 0.55) 0%,
-        rgba(255, 219, 120, 0.28) 40%,
-        rgba(255, 219, 120, 0.08) 70%,
-        rgba(255, 219, 120, 0.00) 100%
-    );
-    filter: blur(10px);
-    z-index: 0;
-}
-
-/* wave image – ON TOP so waves stay white/blue */
-.logo-circle img {
-    position: relative;
-    z-index: 2;
-    width: 92%;
-    height: auto;
-    display: block;
-    margin: 4% auto 0 auto;
-}
-
-/* ---------- HERO TEXT ---------- */
+/* ---------- HERO TEXT ONLY (NO ARABIC) ---------- */
 
 .tagline {
-    margin-top: 32px;
+    margin-top: 0;
     font-size: 13px;
     letter-spacing: 0.35em;
     text-transform: uppercase;
-    text-align: center;
     color: #d7a944;
 }
 
@@ -98,16 +40,15 @@ body {
     font-size: 32px;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    text-align: center;
     font-weight: 500;
 }
 
+/* main body text under heading */
 .intro {
     margin: 28px auto 0 auto;
     max-width: 800px;
     font-size: 16px;
     line-height: 1.7;
-    text-align: center;
     color: #dfdfdf;
 }
 
@@ -115,6 +56,7 @@ body {
 
 .section {
     margin-top: 64px;
+    text-align: left;
 }
 
 .section-title {
@@ -131,7 +73,7 @@ body {
     color: #dfdfdf;
 }
 
-/* ---------- JURISDICTION + CONTACT (2 COLUMNS) ---------- */
+/* ---------- BOTTOM ROW: LEFT = JURISDICTION, RIGHT = ADMIN ---------- */
 
 .bottom-row {
     margin-top: 56px;
@@ -141,9 +83,18 @@ body {
     gap: 40px;
 }
 
-.bottom-column {
+/* left column */
+.bottom-column-left {
     flex: 1 1 260px;
     min-width: 240px;
+    text-align: left;
+}
+
+/* right column */
+.bottom-column-right {
+    flex: 1 1 260px;
+    min-width: 240px;
+    text-align: right;
 }
 
 .bottom-title {
@@ -183,6 +134,10 @@ body {
     .intro, .section-body {
         font-size: 15px;
     }
+    .bottom-column-left,
+    .bottom-column-right {
+        text-align: left;
+    }
 }
 </style>
 </head>
@@ -191,18 +146,10 @@ body {
 
 <div class="page">
 
-    <!-- LOGO + GOLD BEHIND -->
-    <div class="logo-wrapper">
-        <div class="logo-circle">
-            <!-- this image should be your white/blue Hokusai wave with transparent background -->
-            <img src="wave.png" alt="Blackshore Wave Logo" />
-        </div>
-    </div>
+    <!-- HERO (NO ARABIC LINE) -->
+    <div class="tagline">PRIVATELY OWNED INVESTMENT OFFICE</div>
 
-    <!-- HERO TEXT -->
-    <div class="tagline">Privately Owned Investment Office</div>
-
-    <div class="company-name">Blackshore Holdings FZ LLC</div>
+    <div class="company-name">BLACKSHORE HOLDINGS FZ LLC</div>
 
     <p class="intro">
         Blackshore Holdings FZ LLC is a privately owned investment office to steward a portfolio
@@ -213,7 +160,7 @@ body {
 
     <!-- INVESTMENT MINDSET -->
     <div class="section">
-        <div class="section-title">Investment Mindset</div>
+        <div class="section-title">INVESTMENT MINDSET</div>
         <div class="section-body">
             We invest with intent. Guided by the experience of our team, we back only what we
             believe in. Each opportunity is chosen for its potential to create meaningful growth
@@ -226,16 +173,16 @@ body {
     <!-- JURISDICTION & ADMIN CONTACT -->
     <div class="bottom-row">
 
-        <div class="bottom-column">
-            <div class="bottom-title">Jurisdiction</div>
+        <div class="bottom-column-left">
+            <div class="bottom-title">JURISDICTION</div>
             <div class="bottom-body">
                 RAKEZ Free Zone<br />
                 Ras Al Khaimah, United Arab Emirates
             </div>
         </div>
 
-        <div class="bottom-column">
-            <div class="bottom-title">Administrative Contact</div>
+        <div class="bottom-column-right">
+            <div class="bottom-title">ADMINISTRATIVE CONTACT</div>
             <div class="bottom-body">
                 <a href="mailto:admin@blackshoreholdings.com">admin@blackshoreholdings.com</a><br />
                 +971 52 856 2464
