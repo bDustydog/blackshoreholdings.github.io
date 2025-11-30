@@ -82,4 +82,102 @@
     }
 
     .hero-title {
-      font-family: "Michroma"
+      font-family: "Michroma", system-ui, sans-serif;
+      text-transform: uppercase;
+      font-size: 36px;
+      letter-spacing: 0.25em;
+      margin-bottom: 12px;
+    }
+
+    .hero-title-arabic {
+      font-size: 26px;   /* increased */
+      color: var(--text-gold);
+      margin-top: 10px;
+      margin-bottom: 22px;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-subtitle {
+      max-width: 880px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    /* FOOTER GRID -------------------------------------------------------- */
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+      border-top: 1px solid rgba(120, 140, 180, 0.18);
+      margin-top: 64px;
+      padding-top: 28px;
+    }
+
+    .footer-col {
+      flex: 1 1 260px;
+      max-width: 420px;
+    }
+
+    .footer-label {
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--text-gold);
+      margin-bottom: 10px;
+    }
+
+    .footer-line {
+      font-size: 14px;
+      color: var(--text-subtle);
+      line-height: 1.7;
+    }
+
+    .footer-col.right {
+      text-align: right;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="content-wrapper">
+    <header class="hero">
+
+      <div class="hero-logo">
+        <img src="Wave.png" alt="Blackshore Holdings Wave Emblem">
+      </div>
+
+      <div class="hero-kicker">Privately Owned Investment Office</div>
+
+      <h1 class="hero-title">Blackshore Holdings FZ LLC</h1>
+
+      <div class="hero-title-arabic">بلاكشور القابضة ش.ذ.م.م</div>
+
+      <p class="hero-subtitle">
+        Blackshore Holdings FZ LLC is a privately owned investment office to steward a portfolio
+        spanning real estate, hospitality, design, ventures, and collectibles. We combine
+        entrepreneurial expertise with cultural insight to nurture businesses that drive growth,
+        innovation, and creativity.
+      </p>
+
+    </header>
+
+    <section class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-label">Jurisdiction</div>
+        <div class="footer-line">RAKEZ Free Zone</div>
+        <div class="footer-line">Ras Al Khaimah, United Arab Emirates</div>
+      </div>
+
+      <div class="footer-col right">
+        <div class="footer-label">Administrative Contact</div>
+        <div class="footer-line">admin@blackshoreholdings.com</div>
+        <div class="footer-line">+971 52 458 3464</div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
