@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blackshore Holdings FZ LLC</title>
 
-  <!-- Allfeat-style font for headings -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- TASA Orbiter Display for title, Sofia Sans for body -->
+  <link href="https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@500;700&family=Sofia+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-deep: #030711;
-      --bg-mid: #09172a;
-      --bg-accent: #122b46;
-      --card: #0b1220;
-      --border-soft: rgba(255,255,255,0.08);
-      --accent: #d9b873;
+      --bg-deep: #020617;
+      --bg-mid:  #071426;
+      --bg-top:  #122b46;
+      --card-bg: rgba(7, 16, 32, 0.78);
+      --border-soft: rgba(255,255,255,0.10);
+      --accent-gold: #d9b873;
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
     }
@@ -27,153 +27,183 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background:
-        radial-gradient(circle at top left, #1f4e7a 0, transparent 55%),
-        radial-gradient(circle at bottom right, #102032 0, transparent 65%),
-        linear-gradient(135deg, var(--bg-deep), var(--bg-mid));
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text-main);
       display: flex;
-      align-items: stretch;
+      align-items: center;
       justify-content: center;
+      padding: 24px 16px;
+      font-family: "Sofia Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.35), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.85), transparent 65%),
+        linear-gradient(135deg, var(--bg-deep), var(--bg-mid) 45%, var(--bg-top));
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Vignette corners */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -40px;
+      background:
+        radial-gradient(circle at top left, transparent 50%, rgba(0,0,0,0.7)),
+        radial-gradient(circle at top right, transparent 55%, rgba(0,0,0,0.65)),
+        radial-gradient(circle at bottom, transparent 55%, rgba(0,0,0,0.8));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Faint animated noise texture */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -50px;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 0);
+      background-size: 110px 110px;
+      mix-blend-mode: soft-light;
+      opacity: 0.25;
+      animation: noisePulse 9s ease-in-out infinite alternate;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes noisePulse {
+      0%   { opacity: 0.18; transform: translate3d(0,0,0) scale(1); }
+      100% { opacity: 0.32; transform: translate3d(-10px,5px,0) scale(1.03); }
     }
 
     .shell {
       width: 100%;
-      max-width: 1100px;
-      margin: 32px auto;
-      padding: 24px 16px;
+      max-width: 900px;
+      position: relative;
+      z-index: 1;
     }
 
-    .frame {
-      border-radius: 18px;
-      background: radial-gradient(circle at top, #111827, #020617);
+    .card {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: radial-gradient(circle at top, rgba(15,23,42,0.95), var(--card-bg));
+      border-radius: 26px;
       border: 1px solid var(--border-soft);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.65);
-      padding: 28px 22px;
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.75),
+        0 0 0 1px rgba(148,163,184,0.08);
+      padding: 34px 20px 30px;
+      text-align: center;
+      animation: cardGlow 14s ease-in-out infinite alternate;
     }
 
-    @media (min-width: 900px) {
-      .frame {
-        padding: 34px 40px;
+    @media (min-width: 720px) {
+      .card {
+        padding: 40px 80px 34px;
       }
     }
 
-    .hero {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    @media (min-width: 900px) {
-      .hero {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 40px;
+    /* Glassmorphism pulse */
+    @keyframes cardGlow {
+      0% {
+        box-shadow:
+          0 24px 70px rgba(0,0,0,0.78),
+          0 0 0 1px rgba(148,163,184,0.06);
+        border-color: rgba(249,250,251,0.04);
+      }
+      100% {
+        box-shadow:
+          0 32px 90px rgba(15,23,42,0.95),
+          0 0 0 1px rgba(250,204,21,0.12);
+        border-color: rgba(250,204,21,0.18);
       }
     }
 
-    .hero-text {
-      flex: 1.4;
+    .logo-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* Gold glow behind logo */
+    .logo-wrap::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(217,184,115,0.75) 0, rgba(217,184,115,0.12) 40%, transparent 70%);
+      filter: blur(10px);
+      opacity: 0.9;
+      z-index: 0;
+    }
+
+    .logo-wrap img {
+      position: relative;
+      z-index: 1;
+      max-width: 210px;
+      height: auto;
+      border-radius: 50%;
     }
 
     .eyebrow {
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--accent);
-      margin-bottom: 10px;
+      letter-spacing: 0.22em;
+      color: var(--accent-gold);
+      margin-bottom: 8px;
     }
 
     h1 {
-      font-family: 'Orbitron', sans-serif;
-      letter-spacing: 0.12em;
+      margin: 0 0 14px 0;
+      font-family: "TASA Orbiter", system-ui, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.16em;
       font-size: 20px;
       text-transform: uppercase;
-      margin: 0 0 14px 0;
     }
 
-    .subhead {
-      font-size: 14px;
-      color: var(--text-muted);
-      max-width: 480px;
-      line-height: 1.7;
-      margin-bottom: 18px;
-    }
-
-    .meta {
-      font-size: 13px;
-      line-height: 1.7;
+    .lead {
+      margin: 0 auto 22px;
+      max-width: 620px;
+      font-size: 15px;
+      line-height: 1.8;
       color: var(--text-main);
     }
 
-    .meta strong {
+    .meta-block {
+      margin: 18px auto 0;
+      max-width: 520px;
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-main);
+    }
+
+    .meta-block p {
+      margin: 0 0 12px;
+    }
+
+    .label {
       font-weight: 600;
       color: #e5e7eb;
     }
 
-    .hero-card {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-
-    .badge {
-      background: radial-gradient(circle at top, #111827, #020617);
-      border-radius: 20px;
-      border: 1px solid var(--border-soft);
-      padding: 22px 22px 18px;
-      max-width: 320px;
-      text-align: center;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
-    }
-
-    .badge-logo {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
-
-    .badge-logo img {
-      max-width: 190px;
-      height: auto;
-      border-radius: 999px;
-    }
-
-    .badge-title {
-      font-family: 'Orbitron', sans-serif;
-      text-transform: uppercase;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .badge-line {
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--accent), transparent);
-      margin: 6px 0 10px;
-      opacity: 0.7;
-    }
-
-    .badge-text {
-      font-size: 12px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .footer-note {
+    .footnote {
       margin-top: 26px;
-      border-top: 1px solid rgba(249,250,251,0.04);
-      padding-top: 14px;
       font-size: 11px;
       color: var(--text-muted);
+      border-top: 1px solid rgba(148,163,184,0.30);
+      padding-top: 10px;
       text-align: left;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    @media (max-width: 899px) {
-      .footer-note {
+    @media (max-width: 640px) {
+      .meta-block, .footnote {
         text-align: center;
       }
     }
@@ -181,50 +211,37 @@
 </head>
 <body>
   <div class="shell">
-    <div class="frame">
-      <div class="hero">
-        <div class="hero-text">
-          <div class="eyebrow">UAE Registered Entity</div>
-          <h1>BLACKSHORE HOLDINGS FZ LLC</h1>
-          <p class="subhead">
-            A privately held holding company based in the RAKEZ Free Zone, Ras Al Khaimah, providing a central vehicle for ownership, treasury and governance of internal family interests.
-          </p>
-
-          <div class="meta">
-            <p>
-              <strong>Jurisdiction</strong><br>
-              RAKEZ Free Zone, Ras Al Khaimah, United Arab Emirates
-            </p>
-            <p>
-              <strong>Administrative Contact</strong><br>
-              admin@blackshoreholdings.com<br>
-              +971&nbsp;52&nbsp;458&nbsp;3464
-            </p>
-            <p>
-              <strong>External Services</strong><br>
-              Blackshore does not offer public services, client onboarding or external investment opportunities.
-            </p>
-          </div>
-        </div>
-
-        <div class="hero-card">
-          <div class="badge">
-            <div class="badge-logo">
-              <img src="Logo%20Draft%201.1.png" alt="Blackshore Holdings FZ LLC Seal">
-            </div>
-            <div class="badge-title">Registration & Identity</div>
-            <div class="badge-line"></div>
-            <div class="badge-text">
-              Free Zone Limited Liability Company (FZ-LLC)<br>
-              Registered in Ras Al Khaimah, UAE.
-            </div>
-          </div>
-        </div>
+    <div class="card">
+      <div class="logo-wrap">
+        <img src="Logo%20Draft%201.1.png" alt="Blackshore Holdings FZ LLC Seal">
       </div>
 
-      <div class="footer-note">
+      <div class="eyebrow">UAE Registered Entity</div>
+      <h1>BLACKSHORE HOLDINGS FZ LLC</h1>
+
+      <p class="lead">
+        A privately held holding company based in the RAKEZ Free Zone, Ras Al Khaimah, UAE, providing a central vehicle for ownership, treasury and governance of internal investment and asset interests.
+      </p>
+
+      <div class="meta-block">
+        <p>
+          <span class="label">Jurisdiction</span><br>
+          RAKEZ Free Zone, Ras Al Khaimah, United Arab Emirates
+        </p>
+        <p>
+          <span class="label">Administrative Contact</span><br>
+          admin@blackshoreholdings.com<br>
+          +971&nbsp;52&nbsp;458&nbsp;3464
+        </p>
+        <p>
+          <span class="label">External Services</span><br>
+          Blackshore does not offer public services, client onboarding or external investment opportunities.
+        </p>
+      </div>
+
+      <p class="footnote">
         This website provides basic corporate information for verification and compliance purposes only and does not constitute an offer of services, securities, tokens or any form of solicitation.
-      </div>
+      </p>
     </div>
   </div>
 </body>
