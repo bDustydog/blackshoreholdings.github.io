@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blackshore Holdings FZ LLC</title>
 
-  <!-- TASA Orbiter Display for title, Sofia Sans for body -->
-  <link href="https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@500;700&family=Sofia+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Orbitron as stand-in for TASA Orbiter Display, Sofia Sans for body -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Sofia+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg-deep: #020617;
       --bg-mid:  #071426;
-      --bg-top:  #122b46;
-      --card-bg: rgba(7, 16, 32, 0.78);
+      --bg-top:  #12263f;
+      --panel-bg: rgba(10, 16, 32, 0.78);
       --border-soft: rgba(255,255,255,0.10);
       --accent-gold: #d9b873;
       --text-main: #e5e7eb;
@@ -34,86 +34,62 @@
       font-family: "Sofia Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text-main);
       background:
-        radial-gradient(circle at top left, rgba(37, 99, 235, 0.35), transparent 55%),
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.32), transparent 55%),
         radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.85), transparent 65%),
         linear-gradient(135deg, var(--bg-deep), var(--bg-mid) 45%, var(--bg-top));
       position: relative;
       overflow: hidden;
     }
 
-    /* Vignette corners */
+    /* Soft vignette */
     body::before {
       content: "";
       position: fixed;
       inset: -40px;
       background:
-        radial-gradient(circle at top left, transparent 50%, rgba(0,0,0,0.7)),
-        radial-gradient(circle at top right, transparent 55%, rgba(0,0,0,0.65)),
-        radial-gradient(circle at bottom, transparent 55%, rgba(0,0,0,0.8));
+        radial-gradient(circle at top left, transparent 50%, rgba(0,0,0,0.65)),
+        radial-gradient(circle at top right, transparent 55%, rgba(0,0,0,0.6)),
+        radial-gradient(circle at bottom, transparent 55%, rgba(0,0,0,0.75));
       pointer-events: none;
       z-index: 0;
     }
 
-    /* Faint animated noise texture */
+    /* Static subtle noise texture */
     body::after {
       content: "";
       position: fixed;
       inset: -50px;
-      background-image:
-        radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 0);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 0);
       background-size: 110px 110px;
       mix-blend-mode: soft-light;
-      opacity: 0.25;
-      animation: noisePulse 9s ease-in-out infinite alternate;
+      opacity: 0.18;
       pointer-events: none;
       z-index: 0;
     }
 
-    @keyframes noisePulse {
-      0%   { opacity: 0.18; transform: translate3d(0,0,0) scale(1); }
-      100% { opacity: 0.32; transform: translate3d(-10px,5px,0) scale(1.03); }
-    }
-
     .shell {
       width: 100%;
-      max-width: 900px;
+      max-width: 760px;
       position: relative;
       z-index: 1;
     }
 
-    .card {
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      background: radial-gradient(circle at top, rgba(15,23,42,0.95), var(--card-bg));
-      border-radius: 26px;
+    .panel {
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: radial-gradient(circle at top, rgba(15,23,42,0.96), var(--panel-bg));
+      border-radius: 24px;
       border: 1px solid var(--border-soft);
       box-shadow:
-        0 30px 80px rgba(0,0,0,0.75),
-        0 0 0 1px rgba(148,163,184,0.08);
-      padding: 34px 20px 30px;
+        0 28px 80px rgba(0,0,0,0.8),
+        0 0 0 1px rgba(148,163,184,0.06);
+      padding: 34px 22px 30px;
       text-align: center;
-      animation: cardGlow 14s ease-in-out infinite alternate;
     }
 
     @media (min-width: 720px) {
-      .card {
-        padding: 40px 80px 34px;
-      }
-    }
-
-    /* Glassmorphism pulse */
-    @keyframes cardGlow {
-      0% {
-        box-shadow:
-          0 24px 70px rgba(0,0,0,0.78),
-          0 0 0 1px rgba(148,163,184,0.06);
-        border-color: rgba(249,250,251,0.04);
-      }
-      100% {
-        box-shadow:
-          0 32px 90px rgba(15,23,42,0.95),
-          0 0 0 1px rgba(250,204,21,0.12);
-        border-color: rgba(250,204,21,0.18);
+      .panel {
+        padding: 40px 72px 34px;
       }
     }
 
@@ -122,19 +98,21 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
-    /* Gold glow behind logo */
+    /* Light gold glow behind larger logo */
     .logo-wrap::before {
       content: "";
       position: absolute;
-      width: 260px;
-      height: 260px;
+      width: 280px;
+      height: 280px;
       border-radius: 50%;
       background:
-        radial-gradient(circle, rgba(217,184,115,0.75) 0, rgba(217,184,115,0.12) 40%, transparent 70%);
-      filter: blur(10px);
+        radial-gradient(circle, rgba(217,184,115,0.72) 0,
+                               rgba(217,184,115,0.12) 40%,
+                               transparent 72%);
+      filter: blur(12px);
       opacity: 0.9;
       z-index: 0;
     }
@@ -142,7 +120,7 @@
     .logo-wrap img {
       position: relative;
       z-index: 1;
-      max-width: 210px;
+      max-width: 230px;
       height: auto;
       border-radius: 50%;
     }
@@ -152,12 +130,12 @@
       text-transform: uppercase;
       letter-spacing: 0.22em;
       color: var(--accent-gold);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     h1 {
       margin: 0 0 14px 0;
-      font-family: "TASA Orbiter", system-ui, sans-serif;
+      font-family: "TASA Orbiter Display", "Orbitron", system-ui, sans-serif;
       font-weight: 600;
       letter-spacing: 0.16em;
       font-size: 20px;
@@ -172,16 +150,16 @@
       color: var(--text-main);
     }
 
-    .meta-block {
-      margin: 18px auto 0;
+    .meta {
+      margin: 0 auto;
       max-width: 520px;
-      text-align: left;
       font-size: 14px;
       line-height: 1.8;
+      text-align: left;
       color: var(--text-main);
     }
 
-    .meta-block p {
+    .meta p {
       margin: 0 0 12px;
     }
 
@@ -191,19 +169,19 @@
     }
 
     .footnote {
-      margin-top: 26px;
+      margin-top: 24px;
       font-size: 11px;
       color: var(--text-muted);
-      border-top: 1px solid rgba(148,163,184,0.30);
+      border-top: 1px solid rgba(148,163,184,0.3);
       padding-top: 10px;
-      text-align: left;
       max-width: 620px;
       margin-left: auto;
       margin-right: auto;
+      text-align: left;
     }
 
     @media (max-width: 640px) {
-      .meta-block, .footnote {
+      .meta, .footnote {
         text-align: center;
       }
     }
@@ -211,36 +189,32 @@
 </head>
 <body>
   <div class="shell">
-    <div class="card">
+    <div class="panel">
       <div class="logo-wrap">
         <img src="Logo%20Draft%201.1.png" alt="Blackshore Holdings FZ LLC Seal">
       </div>
 
-      <div class="eyebrow">UAE Registered Entity</div>
+      <div class="eyebrow">Private Holding Company</div>
       <h1>BLACKSHORE HOLDINGS FZ LLC</h1>
 
       <p class="lead">
-        A privately held holding company based in the RAKEZ Free Zone, Ras Al Khaimah, UAE, providing a central vehicle for ownership, treasury and governance of internal investment and asset interests.
+        Blackshore Holdings FZ LLC is a privately held entity incorporated in the RAKEZ Free Zone, Ras Al Khaimah, United Arab Emirates. The company provides internal governance, administration and coordination of its own investment and asset interests. Blackshore does not offer public services, external investment opportunities or client onboarding.
       </p>
 
-      <div class="meta-block">
+      <div class="meta">
         <p>
           <span class="label">Jurisdiction</span><br>
-          RAKEZ Free Zone, Ras Al Khaimah, United Arab Emirates
+          RAKEZ Free Zone, Ras Al Khaimah, UAE
         </p>
         <p>
           <span class="label">Administrative Contact</span><br>
           admin@blackshoreholdings.com<br>
           +971&nbsp;52&nbsp;458&nbsp;3464
         </p>
-        <p>
-          <span class="label">External Services</span><br>
-          Blackshore does not offer public services, client onboarding or external investment opportunities.
-        </p>
       </div>
 
       <p class="footnote">
-        This website provides basic corporate information for verification and compliance purposes only and does not constitute an offer of services, securities, tokens or any form of solicitation.
+        This website provides limited corporate information solely for verification and compliance purposes and does not constitute an offer of services, securities or any form of solicitation.
       </p>
     </div>
   </div>
